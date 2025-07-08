@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rectangle_grey"
+    android:padding="@dimen/_8sdp">
+
+    <LinearLayout
+        android:id="@+id/faqHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/inter_regular" />
+
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:src="@drawable/show_more" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        android:paddingTop="@dimen/_5sdp"
+        android:visibility="gone"
+        android:fontFamily="@font/inter_regular" />
+</LinearLayout>

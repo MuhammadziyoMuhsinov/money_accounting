@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_black"
+    tools:context=".StartFragment">
+
+    <ImageView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:src="@drawable/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linear"
+        android:id="@+id/logo"
+        />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_to_expensson"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp"
+            android:fontFamily="@font/inter_bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keep your receipts organized and track your spending easily!"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:fontFamily="@font/inter_regular"
+            />
+
+        <TextView
+            android:id="@+id/getstart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get started"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:fontFamily="@font/inter_regular"
+            android:background="@drawable/bg_button"
+            android:paddingHorizontal="@dimen/_40sdp"
+            android:paddingVertical="@dimen/_10sdp"
+           android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            />
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
