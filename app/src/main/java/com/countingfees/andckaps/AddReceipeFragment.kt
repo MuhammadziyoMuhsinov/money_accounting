@@ -103,17 +103,9 @@ class AddReceipeFragment : Fragment() {
 
     private fun getImage() {
         binding.camera.setOnClickListener {
-            val photoFile = File(
-                requireContext().cacheDir,
-                "temp_camera_photo.jpg"
-            )
-            imageUri = FileProvider.getUriForFile(
-                requireContext(),
-                "${requireContext().packageName}.provider",
-                photoFile
-            )
-            cameraLauncher.launch(imageUri!!)
+            requestCameraPermission.launch(android.Manifest.permission.CAMERA)
         }
+
 
         binding.gallery.setOnClickListener {
             galleryLauncher.launch("image/*")
@@ -291,6 +283,26 @@ class AddReceipeFragment : Fragment() {
 
         binding.tax.text = "Tax $currency$formattedTax ($formattedPercent%)"
         binding.totalDocuments.text = "Total Documents: ${targetList.size}"
+    }
+
+    private val requestCameraPermission = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            launchCamera()
+        } else {
+            Toast.makeText(requireContext(), "Camera permission denied", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun launchCamera() {
+        val photoFile = File.createTempFile("temp_photo_", ".jpg", requireContext().cacheDir)
+        imageUri = FileProvider.getUriForFile(
+            requireContext(),
+            "${requireContext().packageName}.provider",
+            photoFile
+        )
+        imageUri?.let { cameraLauncher.launch(it) }
     }
 
     private fun transitions() {

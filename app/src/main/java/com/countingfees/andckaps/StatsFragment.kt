@@ -244,6 +244,10 @@ class StatsFragment : Fragment() {
     }
 
     private fun transitions() {
+        binding.menu.setOnClickListener {
+            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_summaryFragment_to_profileFragment)
+        }
         binding.summary.setOnClickListener {
             findNavController().popBackStack()
         }
